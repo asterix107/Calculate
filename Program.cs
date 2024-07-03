@@ -8,8 +8,6 @@ var app = builder.Build();
 
 app.UseAntiforgery();
 
-app.MapRazorComponents<Home>().AddInteractiveServerRenderMode();
-
-//app.MapGet("/", () => "Hello World!");
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.Run();
