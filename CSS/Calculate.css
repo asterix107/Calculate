@@ -1,0 +1,6 @@
+﻿.container3-div {
+    width: 50vw; /* Половина ширины viewport */
+    height: 100vh; /* Полная высота viewport */
+    background-color: gray;
+    display: flex;
+}

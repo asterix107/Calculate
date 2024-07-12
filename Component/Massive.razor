@@ -1,0 +1,39 @@
+﻿@* Добавление предметов и шанс их выпадения *@
+
+@rendermode RenderMode.InteractiveServer
+
+<div>
+    <div>
+    <label for="items" style="margin-right: 20px">Предмет</label>
+        <label for="chanses" style="margin-right: 40px">Шанс выпадения</label>
+    </div>
+    <input id="items" type="text" @bind=@nameItem style="width:75px" />
+        <input id="chanses" type="number" @bind="chansedrop" style="width:100px" />
+<button @onclick="OnInputChange">Добавить</button>
+</div>
+<div>
+<label>
+            @* здесь будет список предметов *@
+        @foreach (var item in itemsAndChanses)
+        {
+            <div>
+                <label style ="margin-right: 45px">Предмет: @item.Items</label>
+                <label>Шанс выпадения: @item.Chanse</label>
+            </div>
+        }
+</label>
+</div>
+
+@code{
+
+    private float chansedrop;
+    private string? nameItem;
+    private List<ItemsAndChanse> itemsAndChanses = new List<ItemsAndChanse>(5);
+
+    private void OnInputChange(MouseEventArgs e)
+    {
+        if (nameItem == "")
+            return;
+        itemsAndChanses.Add(new ItemsAndChanse(nameItem, chansedrop));
+    }
+}
